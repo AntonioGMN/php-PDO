@@ -7,6 +7,11 @@ require_once 'vendor/autoload.php';
 
 $connection = ConnectionCreator::createConnection();
 
+$sqlQuery = 'SELECT * FROM phones;';
+$stmt = $connection->query($sqlQuery);
+$resposne = $stmt->fetchAll(PDO::FETCH_ASSOC);
+var_dump($resposne);
+
 $repository = new PdoStudentRepository($connection);
 $students = $repository->allStudents();
 
